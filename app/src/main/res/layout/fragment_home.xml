@@ -29,63 +29,138 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/craftit"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CRAFT GUIDES"
-                android:textSize="30dp"
+                android:text="What is Solid Waste Management?"
+                android:textSize="25dp"
                 android:textColor="@color/white"/>
-
-            <ImageView
-                android:layout_width="150dp"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/reportit"
-                />
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:text="@string/solid_waste_management" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@drawable/roundedcorner"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="REPORT!"
-                android:textSize="30dp"
+                android:text="Republic Act(R.A 9003)"
+                android:textSize="25dp"
                 android:textColor="@color/white"/>
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/pointssabasura"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="POINTS SA BASURA"
-                android:textSize="30dp"
-                android:textColor="@color/white"/>
+                android:textAlignment="center"
+                android:text="The Ecological Solid Waste Management Act of 2000"
+                android:textSize="25dp"
+                android:textColor="@color/black"/>
+            <FrameLayout
+                android:clickable="true"
+                android:background="@drawable/ytlogo"
+                android:layout_marginTop="15dp"
+                android:id="@+id/youtube_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
 
             <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/garbagetruck"/>
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@drawable/roundedcorner"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Garbage Collector"
-                android:textSize="30dp"
+                android:text="BE A MODEL TO THE COMMUNITY"
+                android:textSize="24dp"
+                android:textStyle="bold"
                 android:textColor="@color/white"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
 
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <ImageView
+                    android:clickable="true"
+                    android:id="@+id/craftit"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/craftit"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CRAFT GUIDES"
+                    android:layout_marginTop="70dp"
+                    android:textSize="30dp"
+                    android:padding="5dp"
+                    android:background="@drawable/roundedcorner"
+                    android:textColor="@color/green"/>
 
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/reportit"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REPORT!"
+                    android:layout_marginTop="70dp"
+                    android:textSize="30dp"
+                    android:background="@drawable/roundedcorner"
+                    android:textColor="@color/green"/>
 
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/pointssabasura"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="POINTS SA BASURA"
+                    android:layout_marginTop="70dp"
+                    android:textSize="30dp"
+                    android:background="@drawable/roundedcorner"
+                    android:textColor="@color/green"/>
 
-
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/garbagetruck"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Garbage Collector"
+                    android:layout_marginTop="70dp"
+                    android:textSize="30dp"
+                    android:background="@drawable/roundedcorner"
+                    android:textColor="@color/green"/>
+                </LinearLayout>
+            </HorizontalScrollView>
         </LinearLayout>
     </ScrollView>
+
 
 
 </LinearLayout>

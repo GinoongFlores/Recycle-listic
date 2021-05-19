@@ -6,15 +6,24 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:icon="@drawable/craftit"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:id="@+id/nav_craft"
+            android:icon="@drawable/craftit"
+            android:title="Craft Guides" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_report"
+            android:icon="@drawable/reportit"
+            android:title="Report" />
+        <item
+            android:id="@+id/nav_points"
+            android:icon="@drawable/pointssabasura"
+            android:title="Points sa Basura" />
+        <item
+            android:id="@+id/nav_garbage"
+            android:icon="@drawable/garbagetruck"
+            android:title="Garbage Collector" />
+
     </group>
 </menu>
