@@ -5,21 +5,40 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
+<!--    <activity-->
+<!--        android:id="@+id/nav_home"-->
+<!--        android:name="com.sldevs.mainmenu.CraftMenu"-->
+<!--        android:label="Home"-->
+<!--        tools:layout="@layout/activity_craft_menu"/>-->
+
+
     <fragment
         android:id="@+id/nav_home"
         android:name="com.sldevs.mainmenu.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.sldevs.mainmenu.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_craft"
+        android:name="com.sldevs.mainmenu.ui.craft.CraftFragment"
+        android:label="Craft Guides"
+        tools:layout="@layout/fragment_craft" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.sldevs.mainmenu.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_report"
+        android:name="com.sldevs.mainmenu.ui.report.ReportFragment"
+        android:label="Report It"
+        tools:layout="@layout/fragment_report" />
+
+    <fragment
+        android:id="@+id/nav_points"
+        android:name="com.sldevs.mainmenu.ui.points.PointsFragment"
+        android:label="Report It"
+        tools:layout="@layout/activity_logo_splash" />
+
+    <fragment
+        android:id="@+id/nav_garbage"
+        android:name="com.sldevs.mainmenu.ui.garbage.GarbageFragment"
+        android:label="Report It"
+        tools:layout="@layout/activity_logo_splash" />
 </navigation>
