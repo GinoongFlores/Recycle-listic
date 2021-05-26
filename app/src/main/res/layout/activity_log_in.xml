@@ -5,79 +5,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LogIn"
-    android:orientation="vertical"
-    android:background="@drawable/backgroundwithpicture">
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="150dp"
+        android:text="WELCOME"
+        android:layout_marginLeft="15dp"
+        android:textColor="@color/white"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="Sign in with your email"
+        android:textColor="@color/white"
+        android:textSize="15dp"/>
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp">
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/edit_text_layout_1"
+        android:hint="Email"
+        android:maxLines="1"
+        android:inputType="text"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:singleLine="true"
+        android:textSize="20dp" />
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Password"
+        android:maxLines="1"
+        android:inputType="textPassword"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:textSize="20dp"
+        android:background="@drawable/edit_text_layout_1"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Email:"
-            android:textColor="@color/black"
-            android:textSize="25dp"/>
+    <Button
+        android:id="@+id/btnLogIn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:singleLine="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_layout_2"
+        android:text="Log In"
+        android:textAllCaps="false"
+        android:textSize="20dp" />
 
-        <EditText
-            android:id="@+id/emailET"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedcorner"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:paddingLeft="15dp"/>
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_marginTop="40dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/button_layout_2"
+        android:layout_gravity="center"
+        android:text="Sign Up"
+        android:textSize="20dp"
+        android:textAllCaps="false"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Password:"
-            android:textColor="@color/black"
-            android:textSize="25dp"/>
-
-        <EditText
-            android:id="@+id/passwordET"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/roundedcorner"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:inputType="textPassword"
-            android:textSize="20dp"
-            android:paddingLeft="15dp"/>
-
-        <Button
-            android:id="@+id/btnLogIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/roundedcorner_black"
-            android:layout_marginTop="40dp"
-            android:text="Log In"
-            android:textSize="40dp"
-            android:textColor="@color/brown"
-            android:textAlignment="center"/>
-        <TextView
-            android:id="@+id/signupTV"
-            android:clickable="true"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No account? Sign up here!"
-            android:textSize="25dp"/>
-        <ProgressBar
-            android:id="@+id/progressbar"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone" />
-    </LinearLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textAlignment="center"
+        android:clickable="true"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

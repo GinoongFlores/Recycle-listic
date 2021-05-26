@@ -1,32 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.report.ReportFragment"
-    android:background="@drawable/backgroundgradient_1">
-    <ImageView
-        android:id="@+id/imageView"
+    android:background="@drawable/background_2">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="@drawable/logowithword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:background="@drawable/background_2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="-55dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/report"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_report"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:textColor="@color/white"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/craftingguide"
+                android:paddingLeft="15dp"
+                android:textAlignment="center"
+                android:paddingRight="15dp"
+                android:padding="15dp"
+                android:textSize="15dp"
+                android:textColor="@color/black"
+                android:background="@drawable/container_layout_1"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\''READ BEFORE REPORTING\''"
+                android:paddingLeft="15dp"
+                android:textAlignment="center"
+                android:paddingRight="15dp"
+                android:padding="15dp"
+                android:textSize="23dp"
+                android:textColor="@color/white"
+                android:background="@drawable/warning_sign"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_layout_4"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:text="STEPS FOR REPORTING"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/container_layout_1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <TextView
+                        android:layout_marginTop="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoepr"
+                        android:text="1. Install a Gmail app."
+                        android:textAlignment="center"
+                        android:background="@drawable/container_layout_1"
+                        android:textColor="@color/black"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="20dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/segoepr"
+                        android:textColor="@color/black"
+                        android:background="@drawable/container_layout_1"
+                        android:textAlignment="center"
+                        android:text="2. Go back to Recycle'listic App at the Report Feature then click the \''REPORT NOW\''"/>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="20dp"
+                        android:background="@drawable/container_layout_1"
+                        android:fontFamily="@font/segoepr"
+                        android:textColor="@color/black"
+                        android:textAlignment="center"
+                        android:text="3. Type the location where you saw the issue and the description."/>
+
+                    <TextView
+                        android:id="@+id/btnGoReport"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:paddingTop="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/green_2"
+                        android:singleLine="true"
+                        android:textAlignment="center"
+                        android:text="SEND REPORT"
+                        android:textAllCaps="false"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,14 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.points.PointsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/background_3">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="-55dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/points"
+                android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/menu_points"
+                android:textAlignment="center"
+                android:textSize="30dp"
+                android:textColor="@color/white"/>
 
-</FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Points sa basura is a feature that would help anyone to the community engage more in recycling things."
+                android:textAlignment="center"
+                android:background="@drawable/container_layout_1"
+                android:padding="10dp"
+                android:textSize="20dp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="CURRENT POINTS"
+                android:paddingTop="10dp"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:background="@drawable/check_sign"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/tvPoints"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="25dp"
+                android:background="@drawable/button_layout_4"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/btnShowQRCode"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/green_2"
+                android:singleLine="true"
+                android:paddingTop="10dp"
+                android:textAlignment="center"
+                android:text="My QR Code"
+                android:textAllCaps="false"
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/btnShowJunkLocations"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"
+                android:background="@color/green_2"
+                android:singleLine="true"
+                android:text="Junk Converters"
+                android:textAllCaps="false"
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/btnShowMaterials"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:textAlignment="center"
+                android:layout_marginBottom="20dp"
+                android:background="@color/green_2"
+                android:singleLine="true"
+                android:text="Convertable Materials"
+                android:textAllCaps="false"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
