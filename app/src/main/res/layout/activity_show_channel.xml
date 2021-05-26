@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowChannel"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/green_2">
+
+        <Button
+            android:id="@+id/btnBackQRCode"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:clickable="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Account"
+                android:textColor="@color/white"
+                android:textSize="30dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create your account"
+                android:textColor="@color/white"
+                android:textSize="15dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_marginTop="-55dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/report"
+                android:layout_gravity="center_horizontal"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/container_layout_1">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/firstVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+
+                        app:autoPlay="false"
+                        app:showFullScreenButton="true"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Republic Act(R.A 9003)"
+                        android:textSize="25dp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"/>
+
+                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                        android:layout_marginTop="25dp"
+                        android:id="@+id/secondVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+
+                        app:autoPlay="false"
+                        app:showFullScreenButton="true"
+
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Republic Act(R.A 9003)"
+                        android:textSize="25dp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"/>
+
+                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                        android:layout_marginTop="25dp"
+                        android:id="@+id/thirdVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+
+                        app:autoPlay="false"
+                        app:showFullScreenButton="true"
+
+
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Republic Act(R.A 9003)"
+                        android:textSize="25dp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

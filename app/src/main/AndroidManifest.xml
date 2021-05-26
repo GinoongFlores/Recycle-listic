@@ -1,23 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sldevs.mainmenu">
+    package="com.sldevs.recyclelistic">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
+        <activity android:name=".ShowPoints"></activity>
+        <activity android:name=".ScanningPane" />
+        <activity android:name=".ShowLocations" />
+        <activity android:name=".ShowChannel" />
+        <activity android:name=".ShowQRCode" />
+        <activity android:name=".ReportPane" />
+        <activity android:name=".AddData" />
+        <activity android:name=".ViewRecords" />
+        <activity android:name=".ScanQRCode" />
+        <activity android:name=".EditPoints" />
+        <activity android:name=".DataCollection" />
+        <activity android:name=".EmailVerification" />
         <activity android:name=".SignUp" />
+        <activity android:name=".AfterSplash" />
         <activity android:name=".LogIn" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".AdminSide" />
         <activity
-            android:name=".LogoSplash"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MainMenu.NoActionBar">
+            android:name=".UserSide"
+            android:label="@string/title_activity_user_side"
+            android:theme="@style/Theme.Recyclelistic.NoActionBar" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

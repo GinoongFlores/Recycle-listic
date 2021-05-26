@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddData"
+    android:background="@drawable/background_2"
+    android:orientation="vertical">
+    <LinearLayout
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/green_2">
+
+        <Button
+            android:id="@+id/btnBackAddData"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:clickable="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Adding data for the Data Collection"
+                android:textColor="@color/white"
+                android:textSize="25dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dashboard"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spinMonth"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:entries="@array/monthLists"
+            android:background="@drawable/button_layout_4"/>
+        <EditText
+            android:id="@+id/etDay"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="Day"
+            android:paddingLeft="15dp"
+            android:background="@drawable/button_layout_4"/>
+
+        <EditText
+            android:id="@+id/etYear"
+            android:layout_width="121dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_layout_4"
+            android:hint="Year"
+            android:maxLength="4"
+            android:paddingLeft="15dp"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+
+    <Spinner
+        android:id="@+id/spinnerMaterial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:entries="@array/materialList"
+        android:background="@drawable/button_layout_4"/>
+
+    <EditText
+        android:id="@+id/etValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Value"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="@drawable/button_layout_4"/>
+
+    <Button
+        android:id="@+id/btnAddNewData"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_layout_4"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="+"
+        android:textSize="50dp"/>
+
+
+</LinearLayout>

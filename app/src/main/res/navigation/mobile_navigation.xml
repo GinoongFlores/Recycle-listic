@@ -5,40 +5,33 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/nav_home">
 
-<!--    <activity-->
-<!--        android:id="@+id/nav_home"-->
-<!--        android:name="com.sldevs.mainmenu.CraftMenu"-->
-<!--        android:label="Home"-->
-<!--        tools:layout="@layout/activity_craft_menu"/>-->
-
-
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.sldevs.mainmenu.ui.home.HomeFragment"
-        android:label="Home"
+        android:name="com.sldevs.recyclelistic.ui.home.HomeFragment"
+        android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_craft"
-        android:name="com.sldevs.mainmenu.ui.craft.CraftFragment"
-        android:label="Craft Guides"
+        android:name="com.sldevs.recyclelistic.ui.craft.CraftFragment"
+        android:label="@string/menu_craft"
         tools:layout="@layout/fragment_craft" />
 
     <fragment
         android:id="@+id/nav_report"
-        android:name="com.sldevs.mainmenu.ui.report.ReportFragment"
-        android:label="Report It"
+        android:name="com.sldevs.recyclelistic.ui.report.ReportFragment"
+        android:label="@string/menu_report"
         tools:layout="@layout/fragment_report" />
 
     <fragment
         android:id="@+id/nav_points"
-        android:name="com.sldevs.mainmenu.ui.points.PointsFragment"
-        android:label="Report It"
-        tools:layout="@layout/activity_logo_splash" />
+        android:name="com.sldevs.recyclelistic.ui.points.PointsFragment"
+        android:label="@string/menu_points"
+        tools:layout="@layout/fragment_points" />
 
     <fragment
         android:id="@+id/nav_garbage"
-        android:name="com.sldevs.mainmenu.ui.garbage.GarbageFragment"
-        android:label="Report It"
-        tools:layout="@layout/activity_logo_splash" />
+        android:name="com.sldevs.recyclelistic.ui.garbage.GarbageFragment"
+        android:label="@string/menu_garbage"
+        tools:layout="@layout/fragment_garbage" />
 </navigation>
