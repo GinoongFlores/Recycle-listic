@@ -1,9 +1,11 @@
 package com.sldevs.recyclelistic;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -19,7 +21,8 @@ import java.util.Collection;
 
 public class ShowLocations extends AppCompatActivity {
     WebView showLocation;
-    TextView btnGoogleMap,btnSearchCity;
+    TextView btnGoogleMap;
+    Button btnSearchCity;
     Spinner searchCity;
 
     String city;
@@ -27,7 +30,10 @@ public class ShowLocations extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_locations);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(ShowLocations.this,R.color.green));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(ShowLocations.this,R.color.green));
+        }
         searchCity = findViewById(R.id.searchCity);
         String[] list = getResources().getStringArray(R.array.cityLists);
         Arrays.sort(list);
@@ -45,37 +51,37 @@ public class ShowLocations extends AppCompatActivity {
                 searchCity();
             }
         });
-
+        switch (city){
+            case "Cagayan de Oro City":
+                Uri cdo = Uri.parse("https://plus.codes/6QW6FJGR+MG");
+                Intent goCDO = new Intent(Intent.ACTION_VIEW, cdo);
+                goCDO.setPackage("com.google.android.apps.maps");
+                startActivity(goCDO);
+                break;
+            case "Davao City":
+                Uri davao = Uri.parse("https://plus.codes/6QV73J75+R4");
+                Intent goDavao = new Intent(Intent.ACTION_VIEW, davao);
+                goDavao.setPackage("com.google.android.apps.maps");
+                startActivity(goDavao);
+                break;
+            case "Ormoc City":
+                Uri ormoc = Uri.parse("https://plus.codes/7Q362J74+73");
+                Intent goOrmoc = new Intent(Intent.ACTION_VIEW, ormoc);
+                goOrmoc.setPackage("com.google.android.apps.maps");
+                startActivity(goOrmoc);
+                break;
+            case "Manila City":
+                Uri manila = Uri.parse("https://plus.codes/867FVRHM+XH");
+                Intent goManila = new Intent(Intent.ACTION_VIEW, manila);
+                goManila.setPackage("com.google.android.apps.maps");
+                startActivity(goManila);
+                break;
+        }
         btnGoogleMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 city = searchCity.getSelectedItem().toString();
-                switch (city){
-                    case "Cagayan de Oro City":
-                        Uri cdo = Uri.parse("https://plus.codes/6QW6FJGR+MG");
-                        Intent goCDO = new Intent(Intent.ACTION_VIEW, cdo);
-                        goCDO.setPackage("com.google.android.apps.maps");
-                        startActivity(goCDO);
-                        break;
-                    case "Davao City":
-                        Uri davao = Uri.parse("https://plus.codes/6QV73J75+R4");
-                        Intent goDavao = new Intent(Intent.ACTION_VIEW, davao);
-                        goDavao.setPackage("com.google.android.apps.maps");
-                        startActivity(goDavao);
-                        break;
-                    case "Ormoc City":
-                        Uri ormoc = Uri.parse("https://plus.codes/7Q362J74+73");
-                        Intent goOrmoc = new Intent(Intent.ACTION_VIEW, ormoc);
-                        goOrmoc.setPackage("com.google.android.apps.maps");
-                        startActivity(goOrmoc);
-                        break;
-                    case "Manila City":
-                        Uri manila = Uri.parse("https://plus.codes/867FVRHM+XH");
-                        Intent goManila = new Intent(Intent.ACTION_VIEW, manila);
-                        goManila.setPackage("com.google.android.apps.maps");
-                        startActivity(goManila);
-                        break;
-                }
+
                 // Create a Uri from an intent string. Use the result to create an Intent.
 
             }

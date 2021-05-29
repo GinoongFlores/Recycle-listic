@@ -2,8 +2,10 @@ package com.sldevs.recyclelistic;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -33,7 +35,10 @@ public class ScanningPane extends AppCompatActivity implements ZXingScannerView.
         super.onCreate(savedInstanceState);
         scannerView = new ZXingScannerView(this);
         setContentView(scannerView);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(ScanningPane.this,R.color.green));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(ScanningPane.this,R.color.green));
+        }
         Dexter.withContext(getApplicationContext())
                 .withPermission(Manifest.permission.CAMERA)
                 .withListener(new PermissionListener() {
@@ -72,7 +77,7 @@ public class ScanningPane extends AppCompatActivity implements ZXingScannerView.
 //                            etEmail.setText(list.toString());
 //                        }
                 String getPoints = snapshot.child("points").getValue().toString();
-                ScanQRCode.totalPointss.setText(getPoints);
+                ScanQRCode.totalPointss.setText("Current Points: " + getPoints);
             }
 
             @Override

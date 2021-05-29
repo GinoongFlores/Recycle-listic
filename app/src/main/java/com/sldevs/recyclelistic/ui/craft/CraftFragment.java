@@ -30,6 +30,7 @@ public class CraftFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getContext(), ShowChannel.class);
+                i.putExtra("logo", "");
                 i.putExtra("channel", "first");
                 startActivity(i);
             }

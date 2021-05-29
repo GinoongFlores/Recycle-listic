@@ -53,7 +53,7 @@ public class ShowQRCode extends AppCompatActivity {
         String id = mAuth.getUid();
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
-        StorageReference getQR = storageRef.child("QRCode/"+ mAuth.getUid()+ ".jpg");
+        StorageReference getQR = storageRef.child("QRCode/"+ mAuth.getUid()+ "qrcode.png");
         final long ONE_MEGABYTE = 1024 * 1024;
         getQR.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override

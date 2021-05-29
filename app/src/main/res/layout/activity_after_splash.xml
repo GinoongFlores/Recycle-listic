@@ -27,24 +27,26 @@
         android:id="@+id/splashLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_light"
-        android:layout_marginTop="20dp"
+        android:background="@drawable/button_layout_2"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:text="LOG IN"
         android:textSize="20dp"/>
-    <ImageView
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
-        android:background="@drawable/or"/>
+        android:text="or"
+        android:textAlignment="center"
+        android:textSize="20dp"/>
     <Button
         android:id="@+id/splashSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_light"
+        android:background="@drawable/button_layout_2"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"

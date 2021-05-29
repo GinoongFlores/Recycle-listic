@@ -41,37 +41,49 @@ public class ShowPoints extends AppCompatActivity {
         setContentView(R.layout.activity_show_points);
         mAuth = FirebaseAuth.getInstance();
         firstRedeem = findViewById(R.id.firstRedeem);
-        firstRedeem.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new AlertDialog.Builder(ShowPoints.this).setTitle("Are you sure you want to redeem?").setMessage("100 points for 50 GCash Load").setPositiveButton("Redeem", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        int totalPoints =  Integer.parseInt(tvCurrentPoints.getText().toString()) - 100;
-
-                        FirebaseDatabase.getInstance().getReference("Recyclelistic")
-                                .child("Users")
-                                .child(mAuth.getCurrentUser().getUid())
-                                .child("points")
-                                .setValue(totalPoints).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                finish();
-                                Toast.makeText(ShowPoints.this,"Successfully Redeemed!",Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
-                }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(ShowPoints.this,"Cancelled",Toast.LENGTH_LONG).show();
-                    }
-                }).show();
-            }
-        });
-        secondRedeem = findViewById(R.id.secondRedeem);
         tvCurrentPoints = findViewById(R.id.tvCurrentPoints);
         loadPoints();
+
+            firstRedeem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    new AlertDialog.Builder(ShowPoints.this).setTitle("Are you sure you want to redeem?").setMessage("100 points for 50 GCash Load").setPositiveButton("Redeem", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            int current = Integer.parseInt(tvCurrentPoints.getText().toString());
+                            if(current < 100){
+                                Toast.makeText(ShowPoints.this,"Your points is not enough!",Toast.LENGTH_LONG).show();
+                            }else{
+                                int totalPoints =  current - 100;
+
+                                FirebaseDatabase.getInstance().getReference("Recyclelistic")
+                                        .child("Users")
+                                        .child(mAuth.getCurrentUser().getUid())
+                                        .child("points")
+                                        .setValue(totalPoints).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        finish();
+                                        Toast.makeText(ShowPoints.this,"Successfully Redeemed!",Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                            }
+                            }
+
+                    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(ShowPoints.this,"Cancelled",Toast.LENGTH_LONG).show();
+                        }
+                    }).show();
+
+                }
+            });
+
+
+        secondRedeem = findViewById(R.id.secondRedeem);
+
+
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ShowPoints.this, android.R.layout.simple_list_item_1,arrayList);
 
         listViewPoints = findViewById(R.id.listViewPoints);
@@ -127,7 +139,7 @@ public class ShowPoints extends AppCompatActivity {
 //                            etEmail.setText(list.toString());
 //                        }
                 String getPoints = snapshot.child("points").getValue().toString();
-                tvCurrentPoints.setText(getPoints);
+                tvCurrentPoints.setText("Current Points: " + getPoints);
 
             }
 

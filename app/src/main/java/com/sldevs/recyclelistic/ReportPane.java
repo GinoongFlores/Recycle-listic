@@ -1,28 +1,34 @@
 package com.sldevs.recyclelistic;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ReportPane extends AppCompatActivity {
     EditText etLocation,etDescription;
-    Button btnGoReport;
+    TextView btnGoReport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report_pane);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(ReportPane.this,R.color.green));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(ReportPane.this,R.color.green));
+        }
         etLocation = findViewById(R.id.etLocation);
         etDescription = findViewById(R.id.etDescription);
         btnGoReport = findViewById(R.id.btnGoReport);
@@ -40,15 +46,15 @@ public class ReportPane extends AppCompatActivity {
                 } else {
 
                     final String appPackageName = "com.google.android.gm"; // getPackageName() from Context or Activity object
-                    if (isAppInstalled("com.twitter.android") == true) {
+                    if (isAppInstalled("com.google.android.gm") == true) {
 
                         etDescription.setText("");
                         etLocation.setText("");
                         Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 
-                        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"greencross@gmail.com"});
+                        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"recycelistic@gmail.com"});
                         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Solid Waste Materials");
-                        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Location: " + etLocation.getText() + "\n" + "Description: " + etDescription.getText());
+                        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Location: " + etLocation.getText() + "\n" + "Description: " + etDescription.getText() + "\n\n" + "(DON'T FORGET TO ATTACH IMAGE)");
                         emailIntent.setType("image/png");
 
                         ArrayList<Uri> uris = new ArrayList<Uri>();

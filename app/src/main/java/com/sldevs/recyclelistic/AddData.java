@@ -2,8 +2,10 @@ package com.sldevs.recyclelistic;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -37,7 +39,10 @@ public class AddData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_data);
         Calendar calendar = Calendar.getInstance();
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(AddData.this,R.color.green));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(AddData.this,R.color.green));
+        }
         addDataCity = getIntent().getExtras().getString("toAddData");
         etYear = findViewById(R.id.etYear);
         etValue = findViewById(R.id.etValue);

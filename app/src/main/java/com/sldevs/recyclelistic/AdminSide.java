@@ -12,19 +12,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AdminSide extends AppCompatActivity {
-    ImageView btnDataCollection,btnEdit,btnScan;
+    ImageView btnDataCollection,btnScan;
     private String city;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_side);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(AdminSide.this,R.color.green));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(AdminSide.this,R.color.green));
+        }
         btnDataCollection = findViewById(R.id.btnDataCollection);
-        btnEdit = findViewById(R.id.btnEditPoints);
+
         btnScan = findViewById(R.id.btnScan);
         String adminCity = getIntent().getExtras().getString("City");
         TextView tvCity = findViewById(R.id.tvCity);
-        tvCity.setText(adminCity.toUpperCase() + "ADMIN");
+        tvCity.setText(adminCity.toUpperCase() + " ADMIN SIDE");
 
         btnDataCollection.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,13 +38,6 @@ public class AdminSide extends AppCompatActivity {
             }
         });
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AdminSide.this,EditPoints.class);
-                startActivity(i);
-            }
-        });
 
         btnScan.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -48,16 +49,20 @@ public class ViewRecords extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     List<String> materials,values;
+    TextView paperValue,plasticValue;
     ArrayList<PieEntry> entries;
+    Float f,s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_records);
+        paperValue = findViewById(R.id.paperValue);
+        plasticValue = findViewById(R.id.plasticValue);
         materials = new ArrayList<>();
         materials.add("Plastic");
         materials.add("Paper");
-        values = new ArrayList<>();
-        entries = new ArrayList<>();
+        materials.add("Metals");
+
 
 
         searchMonth = findViewById(R.id.searchMonth);
@@ -69,16 +74,13 @@ public class ViewRecords extends AppCompatActivity {
         myRef = database.getReference("DataCollection");
 
         setupPieChart();
-        loadPieChartData();
+        total();
 
-        String forCity = getIntent().getExtras().getString("toViewRecords");
-        String month = searchMonth.getSelectedItem().toString();
-        String day = searchDay.getText().toString();
-        String year = searchYear.getText().toString();
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
             }
         });
@@ -103,13 +105,15 @@ public class ViewRecords extends AppCompatActivity {
     }
 
     private void loadPieChartData() {
-                paper();
-                plastic();
 
-            }
+    }
 
 //    }
-    public void paper(){
+
+    public void total(){
+
+        entries = new ArrayList<>();
+        values = new ArrayList<>();
         Query paperQuery = myRef.child("cdo").orderByChild("item").equalTo("Paper");
         paperQuery.addValueEventListener(new ValueEventListener() {
             @Override
@@ -117,11 +121,12 @@ public class ViewRecords extends AppCompatActivity {
                 int totalPaper = 0;
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String valuePaper = dataSnapshot.child("value").getValue().toString();
-                    totalPaper = totalPaper + Integer.parseInt(valuePaper);
+                    totalPaper += Integer.parseInt(valuePaper);
                     values.add(String.valueOf(totalPaper));
-                    Log.d("Value: ", String.valueOf(totalPaper));
+//                    Log.d("Value: ", String.valueOf(totalPaper));
                 }
-
+                String paper = String.valueOf(totalPaper);
+                entries.add(new PieEntry(Float.parseFloat(paper), "Paper"));
             }
 
             @Override
@@ -129,8 +134,6 @@ public class ViewRecords extends AppCompatActivity {
 
             }
         });
-    }
-    public void plastic(){
         Query plasticQuery = myRef.child("cdo").orderByChild("item").equalTo("Plastic");
         plasticQuery.addValueEventListener(new ValueEventListener() {
             @Override
@@ -138,40 +141,16 @@ public class ViewRecords extends AppCompatActivity {
                 int totalPlastic = 0;
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     String valuePlastic = dataSnapshot.child("value").getValue().toString();
-                    totalPlastic = totalPlastic + Integer.parseInt(valuePlastic);
-                    values.add(String.valueOf(totalPlastic));
-                    Log.d("Value: ", String.valueOf(totalPlastic));
+                    totalPlastic += Integer.parseInt(valuePlastic);
+                    plasticValue.setText(totalPlastic);
+                    values.add(plasticValue.getText().toString());
+//                    Log.d("Value: ", String.valueOf(totalPlastic));
                 }
+                String plastic = String.valueOf(totalPlastic);
+                entries.add(new PieEntry(Float.parseFloat(plastic), "Plastic"));
 
-                entries.add(new PieEntry(Float.parseFloat(values.get(0)), materials.get(0)));
-                entries.add(new PieEntry(Float.parseFloat(values.get(1)), materials.get(1)));
-                ArrayList<Integer> colors = new ArrayList<>();
-                for (int color: ColorTemplate.MATERIAL_COLORS) {
-                    colors.add(color);
-                }
-
-                for (int color: ColorTemplate.VORDIPLOM_COLORS) {
-                    colors.add(color);
-                }
-
-                PieDataSet dataSet = new PieDataSet(entries, "Material Legend");
-                dataSet.setColors(colors);
-
-                PieData data = new PieData(dataSet);
-                data.setDrawValues(true);
-                data.setValueFormatter(new PercentFormatter(pieChart));
-                data.setValueTextSize(12f);
-                data.setValueTextColor(Color.BLACK);
-
-                pieChart.setData(data);
-                pieChart.invalidate();
-
-                pieChart.animateY(1400, Easing.EaseInOutQuad);
-//                for(int i = 0; i < materials.size();i++){
-//                    Log.d("Valuess: ", values.get(i));
-//                    Log.d("Materialss: ", materials.get(i));
-//                    entries.add(new PieEntry(Float.parseFloat(values.get(i)), materials.get(i)));
-//                }
+                Log.d("Final Paper Value: ", values.get(0));
+                Log.d("Final Plastic Value: ", values.get(1));
 
             }
 
@@ -180,6 +159,45 @@ public class ViewRecords extends AppCompatActivity {
 
             }
         });
+
+//        Float first = Float.parseFloat(values.get(0));
+//        Float second = Float.parseFloat(values.get(1));
+//        entries.add(new PieEntry(, materials.get(0)));
+//        entries.add(new PieEntry(s, materials.get(1)));
+        entries.add(new PieEntry(13f, "Plastic"));
+        entries.add(new PieEntry(10f, "Metal"));
+        entries.add(new PieEntry(9f, "Paper"));
+        entries.add(new PieEntry(4f, "Gas"));
+
+
+        ArrayList<Integer> colors = new ArrayList<>();
+        for (int color: ColorTemplate.MATERIAL_COLORS) {
+            colors.add(color);
+        }
+
+        for (int color: ColorTemplate.VORDIPLOM_COLORS) {
+            colors.add(color);
+        }
+
+        PieDataSet dataSet = new PieDataSet(entries, "Material Legend");
+        dataSet.setColors(colors);
+
+        PieData data = new PieData(dataSet);
+        data.setDrawValues(true);
+        data.setValueFormatter(new PercentFormatter(pieChart));
+        data.setValueTextSize(12f);
+        data.setValueTextColor(Color.BLACK);
+
+        pieChart.setData(data);
+        pieChart.invalidate();
+
+        pieChart.animateY(1400, Easing.EaseInOutQuad);
+//                for(int i = 0; i < materials.size();i++){
+//                    Log.d("Valuess: ", values.get(i));
+//                    Log.d("Materialss: ", materials.get(i));
+//                    entries.add(new PieEntry(Float.parseFloat(values.get(i)), materials.get(i)));
+//                }
+
     }
 }
 

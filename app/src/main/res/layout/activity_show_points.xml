@@ -10,70 +10,82 @@
     <LinearLayout
         android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@color/green_2">
+        android:background="@color/toolbar">
 
         <Button
-            android:id="@+id/btnBackSignUp"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:id="@+id/btnBackQRCode"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/backbtn"
             android:clickable="true" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Material Value"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Convertable/Redeemable Points "
                 android:textColor="@color/white"
-                android:textSize="30dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Create your account"
-                android:textColor="@color/white"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
         </LinearLayout>
+
     </LinearLayout>
 
         <TextView
+            android:layout_marginTop="30dp"
             android:id="@+id/tvCurrentPoints"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/green_2"
+            android:background="@drawable/title_tube"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="Current Points: "
-            android:fontFamily="@font/segoepr"
-            android:textColor="@color/black"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/white"
             android:textAlignment="center"
             android:textSize="25dp" />
             <ListView
+                android:layout_marginTop="10dp"
                 android:id="@+id/listViewPoints"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                >
+                android:layout_height="400dp">
             </ListView>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green_2"
-        android:text="REDEEM POINTS BY:"
-        android:fontFamily="@font/segoepr"
-        android:textColor="@color/black"
-        android:textAlignment="center"
-        android:textSize="25dp" />
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/green_2"
+            android:text="REDEEM POINTS BY:"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="25dp" />
+    </LinearLayout>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/container_layout_1">
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:padding="20dp"
                 android:layout_width="match_parent"
@@ -108,7 +120,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5-Minute Crafts FAMILY"
+                    android:text="GCash 100 Load = 200 points"
                     android:layout_gravity="center"/>
             </LinearLayout>
 
@@ -126,27 +138,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5-Craft"
+                    android:text="GCash 150 Load = 250 points"
                     android:layout_gravity="center"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <ImageView
-                    android:id="@+id/fourthChannel"
-                    android:clickable="true"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@drawable/gcash" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="MissDebbieDIY"
-                    android:layout_gravity="center"/>
-            </LinearLayout>
+
         </LinearLayout>
 
 

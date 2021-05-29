@@ -14,7 +14,7 @@
             android:title="@string/menu_craft" />
         <item
             android:id="@+id/nav_report"
-            android:icon="@drawable/report_logo"
+            android:icon="@drawable/report_logoo"
             android:title="@string/menu_report" />
         <item
             android:id="@+id/nav_points"

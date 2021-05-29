@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
@@ -31,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LogIn extends AppCompatActivity {
     Button btnLogIn,btnSignUp;
     EditText etEmail,etPassword;
+    TextView forgetPassword;
     DatabaseReference myRef;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
@@ -44,6 +46,7 @@ public class LogIn extends AppCompatActivity {
         btnLogIn = findViewById(R.id.btnLogIn);
         btnSignUp = findViewById(R.id.btnSignUp);
         etEmail = findViewById(R.id.etEmail);
+        forgetPassword = findViewById(R.id.forgetPassword);
         etPassword = findViewById(R.id.etPassword);
         progressBar = findViewById(R.id.progressbar);
         mAuth = FirebaseAuth.getInstance();
@@ -51,6 +54,13 @@ public class LogIn extends AppCompatActivity {
             getWindow().setStatusBarColor(ContextCompat.getColor(LogIn.this,R.color.green));
             getWindow().setNavigationBarColor(ContextCompat.getColor(LogIn.this,R.color.green));
         }
+        forgetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LogIn.this,ForgotPassword.class);
+                startActivity(i);
+            }
+        });
         btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +121,11 @@ public class LogIn extends AppCompatActivity {
                             etEmail.setText("");
                             etPassword.setText("");
                             progressBar.setVisibility(View.INVISIBLE);
+                            FirebaseDatabase.getInstance().getReference("Recyclelistic")
+                                    .child("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child("password")
+                                    .setValue(etPassword.getText().toString());
                             finish();
                             Intent intent = new Intent(LogIn.this, UserSide.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

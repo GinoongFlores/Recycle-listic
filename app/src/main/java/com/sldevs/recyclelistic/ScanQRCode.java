@@ -2,8 +2,10 @@ package com.sldevs.recyclelistic;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +40,10 @@ public class ScanQRCode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_q_r_code);
         totalPointss = findViewById(R.id.totalPoints);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(ScanQRCode.this,R.color.green));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(ScanQRCode.this,R.color.green));
+        }
         qrCity = getIntent().getExtras().getString("toScanQRCode");
         etEmailAdd = findViewById(R.id.etEmailAdd);
         addPoints = findViewById(R.id.addPoints);
@@ -89,17 +95,5 @@ public class ScanQRCode extends AppCompatActivity {
 
 
     }
-    public void addPoints(){
-        if(etEmailAdd.getText().toString().isEmpty()){
-            etEmailAdd.setError("Invalid User");
-            etEmailAdd.setFocusable(true);
-            return;
-        }
-        if(etPoints.getText().toString().isEmpty()){
-            etPoints.setError("Please Input Points");
-            etPoints.setFocusable(true);
-            return;
-        }
 
-    }
 }

@@ -15,7 +15,7 @@
 
     <string name="menu_home">Home</string>
     <string name="solid_waste_management">Solid-waste management, the collecting, treating, and disposing of solid material that is discarded because it has served its purpose or is no longer useful.</string>
-
+    <string name="solid_waste_video">QGjPyPBpevY&amp;t</string>
     <string name="menu_craft">Craft Guides</string>
     <string name="craftingguide">Crafting guide helps you to make the unnecessary things to be more useful again. It gives some tutorials that might help you recycle the old things you have right now.</string>
 
@@ -25,7 +25,11 @@
 
     <string name="forgot_password"><u>Forgot Password?</u></string>
     <string name="log_out"><font fgcolor="#089C6F">Log Out</font></string>
-    <string name="edit_profile"><u>Edit profile</u></string>
+    <string name="edit_profile"><u>Edit profile picture</u></string>
+    <string name="edit_name"><u>Edit name</u></string>
+    <string name="edit_email"><u>Edit email</u></string>
+    <string name="edit_password"><u>Change password</u></string>
+    <string name="edit_number"><u>Edit number</u></string>
     <!-- TODO: Remove or change this placeholder text -->
     <array name="cityLists">
         <item>Cagayan de Oro City</item>
