@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="splash">
-        <item>Recycle</item>
-        <item>it</item>
-        <item>Fantastically!</item>
+        <item>RECYCLE</item>
+        <item>IT</item>
+        <item>FANTASTICALLY!</item>
     </string-array>
 </resources>

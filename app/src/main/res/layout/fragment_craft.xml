@@ -6,152 +6,186 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.craft.CraftFragment"
+    android:background="@drawable/background_2"
     android:orientation="vertical">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_2">
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+           <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_circle"
+            android:layout_gravity="center"
+            android:layout_marginTop="-380dp"
+            android:layout_marginLeft="-100dp"
+            android:layout_marginRight="-100dp"/>
             <ImageView
-                android:layout_marginTop="-55dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="-120dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:background="@drawable/craft_logo"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/menu_craft"
-                android:textAlignment="center"
-                android:textSize="30dp"
-                android:textColor="@color/white"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/craftingguide"
-                android:paddingLeft="15dp"
-                android:textAlignment="center"
-                android:paddingRight="15dp"
-                android:padding="15dp"
-                android:textSize="15dp"
                 android:textColor="@color/black"
-                android:background="@drawable/container_layout_1"/>
-
-            <TextView
-                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:textSize="30dp"/>
+            <LinearLayout
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="\''DO NOT PUT UNUSED ITEMS INTO WASTE\''"
-                android:paddingLeft="15dp"
-                android:textAlignment="center"
-                android:paddingRight="15dp"
-                android:padding="15dp"
-                android:textSize="15dp"
-                android:textColor="@color/white"
-                android:background="@drawable/warning_sign"/>
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="100dp"
+                android:layout_marginBottom="-40dp"
+                android:background="@drawable/tube">
 
-            <TextView
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="List of Youtube Crafting Channels"
-                android:paddingLeft="15dp"
-                android:textAlignment="center"
-                android:paddingRight="15dp"
-                android:padding="15dp"
-                android:textSize="20dp"
-                android:textColor="@color/white"
-                android:background="@color/green"/>
-
-            <HorizontalScrollView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/container_layout_1">
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:text="CRAFT IT"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/nunito_bold"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/craftingguide"
+                    android:layout_marginTop="20dp"
+                    android:layout_margin="20dp"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/nunito_regular"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/new_warning"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:padding="15dp"
+                    android:fontFamily="@font/nunito_bolditalic"
+                    android:text="''DO NOT PUT UNUSED MATERIALS INTO WASTE''"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:padding="15dp"
+                    android:text="THESE VIDEOS MIGHT HELP YOU!"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/green_3"
+                    android:padding="20dp">
                     <LinearLayout
-                        android:padding="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/firstChannel"
-                            android:clickable="true"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/logo" />
-                        <TextView
+                        android:orientation="horizontal">
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5-Minute Crafts PLAY"
-                            android:layout_gravity="center"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:padding="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/secondChannel"
-                            android:clickable="true"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/logo" />
-                        <TextView
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/firstChannel"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/first_channel"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="5-Minute Crafts"
+                                android:textColor="@color/white"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginLeft="20dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5-Minute Crafts FAMILY"
-                            android:layout_gravity="center"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:padding="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/thirdChannel"
-                            android:clickable="true"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:background="@drawable/logo" />
-                        <TextView
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/secondChannel"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/second_channel"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="MissDebbieDIY"
+                                android:textColor="@color/white"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginLeft="20dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5-Craft"
-                            android:layout_gravity="center"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:padding="20dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:id="@+id/fourthChannel"
-                            android:clickable="true"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:background="@drawable/logo" />
-                        <TextView
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/thirdChannel"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/logo"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Channel_Name"
+                                android:textColor="@color/white"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginLeft="20dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="MissDebbieDIY"
-                            android:layout_gravity="center"/>
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/fourthChannel"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/logo"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Channel_Name"
+                                android:textColor="@color/white"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginLeft="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:background="@drawable/logo"/>
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Channel_Name"
+                                android:textColor="@color/white"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
 
 
-            </HorizontalScrollView>
+
+
         </LinearLayout>
     </ScrollView>
 

@@ -5,125 +5,142 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShowChannel"
+    android:background="@drawable/background_2"
     android:orientation="vertical">
 
     <LinearLayout
         android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@color/green_2">
+        android:background="@color/toolbar">
 
         <Button
             android:id="@+id/btnBackQRCode"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/backbtn"
             android:clickable="true" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Account"
-                android:textColor="@color/white"
-                android:textSize="30dp"/>
-            <TextView
 
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create your account"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Crafting guide videos"
                 android:textColor="@color/white"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
         </LinearLayout>
 
     </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_2">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
-                android:layout_marginTop="-55dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/report"
-                android:layout_gravity="center_horizontal"/>
-
-            <ScrollView
+                android:background="@drawable/new_circle"
+                android:layout_gravity="center"
+                android:layout_marginTop="-380dp"
+                android:layout_marginLeft="-100dp"
+                android:layout_marginRight="-100dp"/>
+            <ImageView
+                android:id="@+id/channelLogo"
+                android:layout_marginTop="-120dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="30dp"/>
+            <LinearLayout
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/container_layout_1">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/firstVideo"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="-10dp"
+                android:padding="20dp"
+                android:background="@drawable/tube">
+                <TextView
+                    android:id="@+id/channelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5-MINUTE CRAFT PLAY"
+                    android:textSize="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/firstIntent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visit Channel here"
+                    android:textSize="15dp"
+                    android:visibility="gone"
+                    android:fontFamily="@font/nunito_regular"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/secondIntent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visit Channel here"
+                    android:textSize="15dp"
+                    android:fontFamily="@font/nunito_regular"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"/>
 
-                        app:autoPlay="false"
-                        app:showFullScreenButton="true"
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/secondVideo"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    app:showFullScreenButton="false"
+                    app:autoPlay="false"
+                    />
 
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/thirdVideo"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    app:showFullScreenButton="false"
+                    app:autoPlay="false"
+                    />
 
-                        />
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/firstVideo"
+                    android:layout_width="350dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    app:showFullScreenButton="false"
+                    app:autoPlay="false"
+                    />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Republic Act(R.A 9003)"
-                        android:textSize="25dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/white"/>
-
-                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-                        android:layout_marginTop="25dp"
-                        android:id="@+id/secondVideo"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-
-                        app:autoPlay="false"
-                        app:showFullScreenButton="true"
-
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Republic Act(R.A 9003)"
-                        android:textSize="25dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/white"/>
-
-                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-                        android:layout_marginTop="25dp"
-                        android:id="@+id/thirdVideo"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-
-                        app:autoPlay="false"
-                        app:showFullScreenButton="true"
-
-
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Republic Act(R.A 9003)"
-                        android:textSize="25dp"
-                        android:layout_gravity="center"
-                        android:textColor="@color/white"/>
-
-                </LinearLayout>
-
-            </ScrollView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/se"
+                    android:layout_gravity="center"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

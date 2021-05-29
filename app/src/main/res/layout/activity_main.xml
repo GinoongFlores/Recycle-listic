@@ -15,6 +15,7 @@
         android:textSize="30sp"
         android:textColor="@color/white"
         app:texts="@array/splash"
+        android:fontFamily="@font/nunito_bold"
         android:marqueeRepeatLimit="marquee_forever"
         app:timeout="1000" />
 

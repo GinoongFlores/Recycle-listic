@@ -8,122 +8,138 @@
     tools:context=".ReportPane"
     android:orientation="vertical"
     android:background="@drawable/background_2">
+
     <LinearLayout
         android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@color/green_2">
+        android:background="@color/toolbar">
 
         <Button
             android:id="@+id/btnBackQRCode"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/backbtn"
             android:clickable="true" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Account"
-                android:textColor="@color/white"
-                android:textSize="30dp"/>
-            <TextView
 
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create your account"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Send Report"
                 android:textColor="@color/white"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
         </LinearLayout>
 
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background_2">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <ImageView
-                android:layout_marginTop="-55dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/report"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
+                android:background="@drawable/new_circle"
+                android:layout_gravity="center"
+                android:layout_marginTop="-380dp"
+                android:layout_marginLeft="-100dp"
+                android:layout_marginRight="-100dp"/>
+            <ImageView
+                android:id="@+id/channelLogo"
+                android:layout_marginTop="-120dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/craft_logo"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:textSize="30dp"/>
+            <LinearLayout
+                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/menu_report"
-                android:textAlignment="center"
-                android:textSize="30dp"
-                android:textColor="@color/white"/>
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/container_layout_1">
-                <LinearLayout
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="-10dp"
+                android:padding="20dp"
+                android:background="@drawable/tube">
+                <TextView
+                    android:id="@+id/channelName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SEND A REPORT"
+                    android:textSize="25dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/se"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <EditText
-                        android:id="@+id/etLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_layout_4"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="15dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:hint="Location"
-                        android:textColorHint="@color/black"/>
-                    <TextView
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAlignment="center"
-                        android:text="DESCRIPTION"
-                        android:textSize="20dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:textColor="@color/black"/>
-                    <EditText
-                        android:id="@+id/etDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/button_layout_4"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:textAlignment="center"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:textColorHint="@color/black"/>
-                    <Button
-                        android:id="@+id/btnGoReport"
-                        android:layout_width="200dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:background="@drawable/button_layout_2"
-                        android:singleLine="true"
-                        android:text="SEND REPORT"
-                        android:textAllCaps="false"
-                        android:textSize="20dp" />
-
-                </LinearLayout>
-
-
-            </ScrollView>
+                    android:layout_height="wrap_content"
+                    android:text="Input the specific place where the issue is:"
+                    android:textSize="15dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+                <EditText
+                    android:id="@+id/etLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_layout_1"
+                    android:hint="Location"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:singleLine="true"
+                    android:textSize="20dp" />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add some description regarding the issue:"
+                    android:textSize="15dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+                <EditText
+                    android:id="@+id/etDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_layout_1"
+                    android:hint="Description"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:singleLine="true"
+                    android:textSize="20dp" />
+                <TextView
+                    android:id="@+id/btnGoReport"
+                    android:layout_marginTop="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/go_to"
+                    android:text="DONE"
+                    android:paddingTop="5dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/se"
+                    android:textSize="20dp"
+                    android:textAlignment="center"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

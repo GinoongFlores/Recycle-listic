@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -21,6 +22,7 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -62,6 +64,7 @@ public class SignUp extends AppCompatActivity {
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
     FirebaseStorage storage;
+    CheckBox checkTerms;
     private Uri imageUri;
     StorageReference storageRef;
     ImageView imageQRCode;
@@ -69,6 +72,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        checkTerms = findViewById(R.id.checkTerms);
         mAuth = FirebaseAuth.getInstance();
 
         storage = FirebaseStorage.getInstance();
@@ -87,7 +91,6 @@ public class SignUp extends AppCompatActivity {
         etEmailSignUp = findViewById(R.id.etEmailSignUp);
         etPasswordSignUp = findViewById(R.id.etPasswordSignUp);
         etNumber = findViewById(R.id.etNumber);
-        btnGenerate = findViewById(R.id.btnGenerate);
         imageQRCode = findViewById(R.id.imageQRCode);
 
         progressBar = findViewById(R.id.progressbar_signup);
@@ -102,7 +105,17 @@ public class SignUp extends AppCompatActivity {
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerUser();
+                if(checkTerms.isChecked()){
+                    registerUser();
+                }else{
+                    new android.app.AlertDialog.Builder(SignUp.this).setTitle("Terms and Agreements").setMessage("Please check Terms and Agreements").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).show();
+                }
+
             }
         });
 //        btnGenerate.setOnClickListener(new View.OnClickListener() {
@@ -175,7 +188,7 @@ public class SignUp extends AppCompatActivity {
 
                 if (task.isSuccessful()) {
 
-                    UserDetails user = new UserDetails(fullname,email,number,"0");
+                    UserDetails user = new UserDetails(fullname,email,password,number,"0");
 
                     FirebaseDatabase.getInstance().getReference("Recyclelistic")
                             .child("Users")
@@ -186,10 +199,9 @@ public class SignUp extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 generateQRCode();
                                 storeImage();
-                                sendVerification();
+                                storeProfile();
+//                                sendVerification();
                                 Toast.makeText(getApplicationContext(), "Successfully Registered!", Toast.LENGTH_SHORT).show();
-
-                                saveQRCode();
                                 finish();
                                 startActivity(new Intent(SignUp.this, UserSide.class));
                             }else{
@@ -219,10 +231,40 @@ public class SignUp extends AppCompatActivity {
         });
 
     }
+    public void storeProfile(){
+        String id = FirebaseAuth.getInstance().getUid();
+        StorageReference qrcode = storageRef.child(id + ".png");
+        StorageReference qrcodeimageref = storageRef.child("ProfilePicture/" + id + "profile.png");
+        qrcode.getName().equals(qrcodeimageref.getName());
+        qrcode.getPath().equals(qrcodeimageref.getPath());
+
+
+        Bitmap bitmap = BitmapFactory.decodeResource(getApplicationContext().getResources(),
+                R.drawable.default_avatar_logo);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = qrcodeimageref.putBytes(data);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+            }
+        });
+
+    }
     public void storeImage(){
         String id = FirebaseAuth.getInstance().getUid();
-        StorageReference qrcode = storageRef.child(id + ".jpg");
-        StorageReference qrcodeimageref = storageRef.child("QRCode/" + id + ".jpg");
+        StorageReference qrcode = storageRef.child(id + ".png");
+        StorageReference qrcodeimageref = storageRef.child("QRCode/" + id + "qrcode.png");
         qrcode.getName().equals(qrcodeimageref.getName());
         qrcode.getPath().equals(qrcodeimageref.getPath());
 
@@ -230,7 +272,7 @@ public class SignUp extends AppCompatActivity {
         imageQRCode.buildDrawingCache();
         Bitmap bitmap = ((BitmapDrawable) imageQRCode.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] data = baos.toByteArray();
 
         UploadTask uploadTask = qrcodeimageref.putBytes(data);
@@ -278,7 +320,7 @@ public class SignUp extends AppCompatActivity {
             return;
         }else{
             try{
-                BitMatrix bitMatrix = multiFormatWriter.encode("ID: "+mAuth.getCurrentUser().getUid()+"\nName: " + etEmailSignUp.getText().toString(), BarcodeFormat.QR_CODE,500,500);
+                BitMatrix bitMatrix = multiFormatWriter.encode("ID: "+mAuth.getCurrentUser().getUid()+"\nEmail: " + etEmailSignUp.getText().toString(), BarcodeFormat.QR_CODE,500,500);
                 BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                 Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                 imageQRCode.setImageBitmap(bitmap);
@@ -290,21 +332,6 @@ public class SignUp extends AppCompatActivity {
         }
 
     }
-    public byte[] getByteArray(ImageView imageView){
-        // Get the data from an ImageView as bytes
-        imageView.setDrawingCacheEnabled(true);
-        imageView.buildDrawingCache();
-        Bitmap bitmap = imageView.getDrawingCache();
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-        byte[] data = baos.toByteArray();
-        return data;
-    }
-
-    public void saveQRCode() {
-
-    }
-
 
 
 }

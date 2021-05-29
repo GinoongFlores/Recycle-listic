@@ -3,14 +3,18 @@ package com.sldevs.recyclelistic;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -35,13 +39,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.io.IOException;
+
 public class UserSide extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private FirebaseAuth mAuth;
     DatabaseReference myRef;
     TextView tvName,tvEmail;
-
+    ImageView profilePicture,editProfile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,20 +59,19 @@ public class UserSide extends AppCompatActivity {
         tvName = findViewById(R.id.tvName);
         tvEmail = findViewById(R.id.tvEmail);
         displayInfo();
+        try {
+            loadProfile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(ContextCompat.getColor(UserSide.this,R.color.green));
             getWindow().setNavigationBarColor(ContextCompat.getColor(UserSide.this,R.color.green));
         }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -80,8 +85,18 @@ public class UserSide extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         View decorView = getWindow().getDecorView();
         View headerView = navigationView.getHeaderView(0);
+        profilePicture = headerView.findViewById(R.id.profilePicture);
+        editProfile = headerView.findViewById(R.id.editProfile);
         tvName = headerView.findViewById(R.id.tvName);
         tvEmail = headerView.findViewById(R.id.tvEmail);
+
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(UserSide.this,EditProfile.class);
+                startActivity(i);
+            }
+        });
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -124,11 +139,16 @@ public class UserSide extends AppCompatActivity {
 //                            list.add(txt);
 //                            etEmail.setText(list.toString());
 //                        }
-                String name = snapshot.child("name").getValue().toString();
-                String email = snapshot.child("email").getValue().toString();
+                try{
+                    String name = snapshot.child("name").getValue().toString();
+                    String email = snapshot.child("email").getValue().toString();
 
-                tvName.setText(name);
-                tvEmail.setText(email);
+                    tvName.setText(name);
+                    tvEmail.setText(email);
+                }catch (NullPointerException e){
+
+                }
+
             }
 
             @Override
@@ -137,4 +157,20 @@ public class UserSide extends AppCompatActivity {
             }
         });
     }
+    public void loadProfile() throws IOException {
+        String id = mAuth.getUid();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+        StorageReference getQR = storageRef.child("ProfilePicture/"+ mAuth.getUid()+ "profile.png");
+        final long ONE_MEGABYTE = 1024 * 1024;
+        getQR.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                profilePicture.setImageBitmap(bitmap);
+                profilePicture.setMaxWidth(80);
+                profilePicture.setMaxHeight(80);
+            }
+        });
+}
 }
