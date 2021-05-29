@@ -1,4 +1,4 @@
-# Recycle-listic App by SL Devs
+# Recycle'listic App by SL Devs
 
 ## STI College CDO
 
