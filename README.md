@@ -1,4 +1,4 @@
-# Recycle-listic App by SL Devs
+# Recycle'listic App by SL Devs
 
 ## STI College CDO
 
@@ -6,6 +6,6 @@
 
 ### [Jason S. Llanes](https://www.facebook.com/jsnllanes19)
 
-### [Christian Paul H. Flores](https://www.facebook.com/christianpaulh.flores)
+### [Christian Paul H. Flores](https://ginoongflores.me)
 
 ### [Phillipp Jhon N. Lumod](https://www.facebook.com/imtrshfckr)
