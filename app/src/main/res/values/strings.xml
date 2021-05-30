@@ -18,6 +18,10 @@
     <string name="solid_waste_video">QGjPyPBpevY&amp;t</string>
     <string name="menu_craft">Craft Guides</string>
     <string name="craftingguide">Crafting guide helps you to make the unnecessary things to be more useful again. It gives some tutorials that might help you recycle the old things you have right now.</string>
+    <string name="reportit">Waste here, waste there! Why not report it through our email? Report It! Is a feature for you to maintain the cleanliness of your surrounding. </string>
+    <string name="pointssabasura">Wanna earn some points and convert it to something special? Well Pera sa Basura is the key for it! Just search for the following items shown in convertable materials and look for the nearest junk converters near you. </string>
+    <string name="garbage">Be updated for the Garbage Collector by using this feature. Just search for the specific city and it will tell you what would be the specific time.</string>
+
 
     <string name="menu_report">Report</string>
     <string name="menu_points">Points sa Basura</string>

@@ -49,15 +49,14 @@ public class ViewRecords extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     List<String> materials,values;
-    TextView paperValue,plasticValue;
+
     ArrayList<PieEntry> entries;
     Float f,s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_records);
-        paperValue = findViewById(R.id.paperValue);
-        plasticValue = findViewById(R.id.plasticValue);
+
         materials = new ArrayList<>();
         materials.add("Plastic");
         materials.add("Paper");
@@ -113,52 +112,52 @@ public class ViewRecords extends AppCompatActivity {
     public void total(){
 
         entries = new ArrayList<>();
-        values = new ArrayList<>();
-        Query paperQuery = myRef.child("cdo").orderByChild("item").equalTo("Paper");
-        paperQuery.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int totalPaper = 0;
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String valuePaper = dataSnapshot.child("value").getValue().toString();
-                    totalPaper += Integer.parseInt(valuePaper);
-                    values.add(String.valueOf(totalPaper));
-//                    Log.d("Value: ", String.valueOf(totalPaper));
-                }
-                String paper = String.valueOf(totalPaper);
-                entries.add(new PieEntry(Float.parseFloat(paper), "Paper"));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        Query plasticQuery = myRef.child("cdo").orderByChild("item").equalTo("Plastic");
-        plasticQuery.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                int totalPlastic = 0;
-                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String valuePlastic = dataSnapshot.child("value").getValue().toString();
-                    totalPlastic += Integer.parseInt(valuePlastic);
-                    plasticValue.setText(totalPlastic);
-                    values.add(plasticValue.getText().toString());
-//                    Log.d("Value: ", String.valueOf(totalPlastic));
-                }
-                String plastic = String.valueOf(totalPlastic);
-                entries.add(new PieEntry(Float.parseFloat(plastic), "Plastic"));
-
-                Log.d("Final Paper Value: ", values.get(0));
-                Log.d("Final Plastic Value: ", values.get(1));
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        values = new ArrayList<>();
+//        Query paperQuery = myRef.child("cdo").orderByChild("item").equalTo("Paper");
+//        paperQuery.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                int totalPaper = 0;
+//                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                    String valuePaper = dataSnapshot.child("value").getValue().toString();
+//                    totalPaper += Integer.parseInt(valuePaper);
+//                    values.add(String.valueOf(totalPaper));
+////                    Log.d("Value: ", String.valueOf(totalPaper));
+//                }
+//                String paper = String.valueOf(totalPaper);
+//                entries.add(new PieEntry(Float.parseFloat(paper), "Paper"));
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//        Query plasticQuery = myRef.child("cdo").orderByChild("item").equalTo("Plastic");
+//        plasticQuery.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                int totalPlastic = 0;
+//                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                    String valuePlastic = dataSnapshot.child("value").getValue().toString();
+//                    totalPlastic += Integer.parseInt(valuePlastic);
+//                    plasticValue.setText(totalPlastic);
+//                    values.add(plasticValue.getText().toString());
+////                    Log.d("Value: ", String.valueOf(totalPlastic));
+//                }
+//                String plastic = String.valueOf(totalPlastic);
+//                entries.add(new PieEntry(Float.parseFloat(plastic), "Plastic"));
+//
+//                Log.d("Final Paper Value: ", values.get(0));
+//                Log.d("Final Plastic Value: ", values.get(1));
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
 //        Float first = Float.parseFloat(values.get(0));
 //        Float second = Float.parseFloat(values.get(1));
