@@ -10,32 +10,35 @@
     <LinearLayout
         android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@color/green_2">
+        android:background="@color/toolbar">
 
         <Button
-            android:id="@+id/btnBackAddData"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:id="@+id/btnBackQRCode"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/backbtn"
             android:clickable="true" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:text="Adding data for the Data Collection"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Add Data"
                 android:textColor="@color/white"
-                android:textSize="25dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
 
         </LinearLayout>
 
     </LinearLayout>
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,24 +59,26 @@
             android:layout_marginLeft="20dp"
             android:paddingLeft="10dp"
             android:entries="@array/monthLists"
-            android:background="@drawable/button_layout_4"/>
+            android:background="@drawable/button_admin"/>
         <EditText
             android:id="@+id/etDay"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:hint="Day"
             android:paddingLeft="15dp"
-            android:background="@drawable/button_layout_4"/>
+            android:textColor="@color/white"
+            android:background="@drawable/button_admin"/>
 
         <EditText
             android:id="@+id/etYear"
             android:layout_width="121dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_layout_4"
+            android:background="@drawable/button_admin"
             android:hint="Year"
             android:maxLength="4"
+            android:textColor="@color/white"
             android:paddingLeft="15dp"
-            android:textColor="@color/black" />
+             />
 
     </LinearLayout>
 
@@ -87,21 +92,23 @@
         android:layout_marginRight="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:textColor="@color/white"
         android:entries="@array/materialList"
-        android:background="@drawable/button_layout_4"/>
+        android:background="@drawable/drop_down"/>
 
     <EditText
         android:id="@+id/etValue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Value"
-        android:textColor="@color/black"
+
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:textColor="@color/white"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:background="@drawable/button_layout_4"/>
+        android:background="@drawable/button_admin"/>
 
     <Button
         android:id="@+id/btnAddNewData"
@@ -111,10 +118,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/button_layout_4"
+        android:background="@drawable/btn_add_points"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="+"
         android:textSize="50dp"/>
 
 

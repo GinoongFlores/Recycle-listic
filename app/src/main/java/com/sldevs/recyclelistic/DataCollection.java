@@ -24,7 +24,7 @@ public class DataCollection extends AppCompatActivity {
         btnViewRecords = findViewById(R.id.btnViewRecords);
         btnAddData = findViewById(R.id.btnAddData);
         TextView show = findViewById(R.id.showCity);
-        show.setText(dataCity);
+        show.setText(dataCity + " ADMIN SIDE");
         btnViewRecords.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
