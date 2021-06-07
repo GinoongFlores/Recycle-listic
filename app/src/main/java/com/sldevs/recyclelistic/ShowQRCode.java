@@ -31,6 +31,12 @@ public class ShowQRCode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_q_r_code);
         btnBackQRCode = findViewById(R.id.btnBackQRCode);
+        btnBackQRCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         displayQRCode = findViewById(R.id.displayQRCode);
         displayEmail = findViewById(R.id.displayEmail);
         mAuth = FirebaseAuth.getInstance();

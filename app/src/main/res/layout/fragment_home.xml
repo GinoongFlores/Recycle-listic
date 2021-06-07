@@ -45,12 +45,12 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="130dp"
                 android:layout_margin="20dp"
                 android:background="@drawable/home_container"
                 android:fontFamily="@font/nunito_regular"
                 android:paddingTop="20dp"
-                android:text="Recycle'listic is an app develop for making segregation a fantastic thing to do. \n'' Recycle it Fantastically! \''\n-Recycle'listic"
+                android:text="Recycle'listic is an app developed for making segregation a fantastic thing to do. \n'' Recycle it Fantastically! \''"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18dp" />
@@ -66,7 +66,7 @@
                 android:textColor="@color/white"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="130dp"
                 android:fontFamily="@font/nunito_regular"
                 android:paddingTop="20dp"
                 android:layout_margin="20dp"

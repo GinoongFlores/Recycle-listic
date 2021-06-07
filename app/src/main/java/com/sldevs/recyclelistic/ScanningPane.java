@@ -77,7 +77,7 @@ public class ScanningPane extends AppCompatActivity implements ZXingScannerView.
 //                            etEmail.setText(list.toString());
 //                        }
                 String getPoints = snapshot.child("points").getValue().toString();
-                ScanQRCode.totalPointss.setText("Current Points: " + getPoints);
+                ScanQRCode.totalPointss.setText(getPoints);
             }
 
             @Override

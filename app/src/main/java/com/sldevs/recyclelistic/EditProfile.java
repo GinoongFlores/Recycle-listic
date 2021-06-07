@@ -75,6 +75,7 @@ public class EditProfile extends AppCompatActivity {
             getWindow().setStatusBarColor(ContextCompat.getColor(EditProfile.this,R.color.green));
             getWindow().setNavigationBarColor(ContextCompat.getColor(EditProfile.this,R.color.green));
         }
+
         etNameProfile = findViewById(R.id.etNameProfile);
         etEmailProfile = findViewById(R.id.etEmailProfile);
         etNumberProfle = findViewById(R.id.etNumberProfile);
@@ -211,7 +212,7 @@ public class EditProfile extends AppCompatActivity {
         editEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isVerify();
+
                 editEmaill.setVisibility(View.VISIBLE);
                 editEmail.setVisibility(View.INVISIBLE);
                 etEmailProfile.setEnabled(true);
@@ -281,6 +282,7 @@ public class EditProfile extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         storageRef = storage.getReference();
 
+        isVerify();
 
         tvNotVerified.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -383,7 +385,7 @@ public class EditProfile extends AppCompatActivity {
     }
     public void storeImage(){
         String id = FirebaseAuth.getInstance().getUid();
-        StorageReference qrcode = storageRef.child(id + ".jpg");
+        StorageReference qrcode = storageRef.child(id + ".png");
         StorageReference qrcodeimageref = storageRef.child("ProfilePicture/" + id + "profile.png");
         qrcode.getName().equals(qrcodeimageref.getName());
         qrcode.getPath().equals(qrcodeimageref.getPath());
@@ -392,7 +394,7 @@ public class EditProfile extends AppCompatActivity {
         ivImage.buildDrawingCache();
         Bitmap bitmap = ((BitmapDrawable) ivImage.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] data = baos.toByteArray();
 
         UploadTask uploadTask = qrcodeimageref.putBytes(data);
@@ -483,7 +485,7 @@ public class EditProfile extends AppCompatActivity {
     private void onCaptureImageResult(Intent data) {
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        thumbnail.compress(Bitmap.CompressFormat.PNG, 100, bytes);
 
         File destination = new File(Environment.getExternalStorageDirectory(),
                 System.currentTimeMillis() + ".png");

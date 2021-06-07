@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewRecords"
     android:orientation="vertical"
+    tools:context=".TotalYear"
     android:background="@drawable/background_2">
-
 
     <LinearLayout
         android:padding="5dp"
@@ -32,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@font/nunito_regular"
-                android:text="View Records"
+                android:text="Search by Year"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -41,19 +40,8 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <com.github.mikephil.charting.charts.PieChart
-            android:id="@+id/activity_main_piechart"
-            android:layout_width="match_parent"
-            android:layout_height="450dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Search by:"
-        android:gravity="center"
-        android:textSize="20dp"/>
     <ScrollView
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -67,38 +55,31 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-
+                <EditText
+                    android:id="@+id/etSearchYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Input the year"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:background="@drawable/button_admin"
+                    android:paddingLeft="25dp"
+                    />
                 <Button
-                    android:id="@+id/btnYY"
-                    android:layout_width="match_parent"
+                    android:id="@+id/btnSearchYear"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_admin"
                     android:textColor="@color/white"
-                    android:text="Year"
-                    android:textSize="20dp"/>
+                    android:text="Search..."/>
 
-                <Button
-                    android:id="@+id/btnMMYY"
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/activity_main_piechart"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_admin"
-                    android:textColor="@color/white"
-                    android:text="Month | Year"
-                    android:textSize="20dp"/>
-                <Button
-                    android:id="@+id/btnMMDDYY"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_admin"
-                    android:textColor="@color/white"
-                    android:text="Month | Day | Year"
-                    android:textSize="20dp"/>
-
+                    android:layout_height="550dp" />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
-
 
 </LinearLayout>

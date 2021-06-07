@@ -15,7 +15,7 @@
         android:background="@color/toolbar">
 
         <Button
-            android:id="@+id/btnBackQRCode"
+            android:id="@+id/btnBackAddData"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/backbtn"
@@ -39,89 +39,121 @@
         </LinearLayout>
 
     </LinearLayout>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/dashboard"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <Spinner
-            android:id="@+id/spinMonth"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:paddingLeft="10dp"
-            android:entries="@array/monthLists"
-            android:background="@drawable/button_admin"/>
-        <EditText
-            android:id="@+id/etDay"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:hint="Day"
-            android:paddingLeft="15dp"
-            android:textColor="@color/white"
-            android:background="@drawable/button_admin"/>
-
-        <EditText
-            android:id="@+id/etYear"
-            android:layout_width="121dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_admin"
-            android:hint="Year"
-            android:maxLength="4"
-            android:textColor="@color/white"
-            android:paddingLeft="15dp"
-             />
-
-    </LinearLayout>
-
-
-    <Spinner
-        android:id="@+id/spinnerMaterial"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:textColor="@color/white"
-        android:entries="@array/materialList"
-        android:background="@drawable/drop_down"/>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dashboard"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/etValue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Value"
+                <Spinner
+                    android:id="@+id/month"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:paddingLeft="10dp"
+                    android:maxLength="2"
+                    android:entries="@array/monthLists"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_admin"/>
+                <EditText
+                    android:id="@+id/day"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/white"
+                    android:hint="Day"
+                    android:inputType="number"
+                    android:background="@drawable/button_admin"/>
 
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/white"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:background="@drawable/button_admin"/>
+                <EditText
+                    android:id="@+id/year"
+                    android:layout_width="121dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_admin"
+                    android:hint="Year"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:textColor="@color/white"
+                    android:paddingLeft="15dp"
+                    />
 
-    <Button
-        android:id="@+id/btnAddNewData"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/btn_add_points"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:textSize="50dp"/>
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/etPaperAddData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Paper"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:inputType="number"
+                android:background="@drawable/button_admin"/>
+
+            <EditText
+                android:id="@+id/etPlasticAddData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Plastic"
+                android:inputType="number"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@drawable/button_admin"/>
+
+            <EditText
+                android:id="@+id/etMetalAddData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Metal"
+                android:inputType="number"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/white"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:background="@drawable/button_admin"/>
+
+
+            <Button
+                android:id="@+id/btnAddNewData"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_add_points"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textSize="50dp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
 
 
 </LinearLayout>

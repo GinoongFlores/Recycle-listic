@@ -83,7 +83,7 @@ public class LogIn extends AppCompatActivity {
         if(email.equalsIgnoreCase("cdo_admin@gmail.com") && password.equalsIgnoreCase("123456")){
             finish();
             Intent i = new Intent(LogIn.this, AdminSide.class);
-            i.putExtra("City",email.substring(0,3));
+            i.putExtra("City",email.substring(0,3).toUpperCase());
             startActivity(i);
             Toast.makeText(getApplicationContext(), "Welcome Admin", Toast.LENGTH_SHORT).show();
         }

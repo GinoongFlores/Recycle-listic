@@ -10,33 +10,32 @@
     <LinearLayout
         android:padding="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@color/green_2">
+        android:background="@color/toolbar">
 
         <Button
             android:id="@+id/btnBackSignUp"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_baseline_arrow_back_24"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/backbtn"
             android:clickable="true" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Account"
-                android:textColor="@color/white"
-                android:textSize="30dp"/>
-            <TextView
 
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Create your account"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/nunito_regular"
+                android:text="Create account"
                 android:textColor="@color/white"
-                android:textSize="15dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
         </LinearLayout>
 
     </LinearLayout>

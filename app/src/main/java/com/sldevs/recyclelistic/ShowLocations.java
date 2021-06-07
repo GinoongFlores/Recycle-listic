@@ -22,7 +22,7 @@ import java.util.Collection;
 public class ShowLocations extends AppCompatActivity {
     WebView showLocation;
     TextView btnGoogleMap;
-    Button btnSearchCity;
+    Button btnSearchCity,btnBackShowLocation;
     Spinner searchCity;
 
     String city;
@@ -30,6 +30,13 @@ public class ShowLocations extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_locations);
+        btnBackShowLocation = findViewById(R.id.btnBackShowLocation);
+        btnBackShowLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(ContextCompat.getColor(ShowLocations.this,R.color.green));
             getWindow().setNavigationBarColor(ContextCompat.getColor(ShowLocations.this,R.color.green));
@@ -42,6 +49,17 @@ public class ShowLocations extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         searchCity.setAdapter(adapter);
 
+        searchCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                searchCity();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         showLocation = findViewById(R.id.showLocation);
         btnSearchCity = findViewById(R.id.btnSearchCity);
         btnGoogleMap = findViewById(R.id.btnGoogleMap);
@@ -51,36 +69,37 @@ public class ShowLocations extends AppCompatActivity {
                 searchCity();
             }
         });
-        switch (city){
-            case "Cagayan de Oro City":
-                Uri cdo = Uri.parse("https://plus.codes/6QW6FJGR+MG");
-                Intent goCDO = new Intent(Intent.ACTION_VIEW, cdo);
-                goCDO.setPackage("com.google.android.apps.maps");
-                startActivity(goCDO);
-                break;
-            case "Davao City":
-                Uri davao = Uri.parse("https://plus.codes/6QV73J75+R4");
-                Intent goDavao = new Intent(Intent.ACTION_VIEW, davao);
-                goDavao.setPackage("com.google.android.apps.maps");
-                startActivity(goDavao);
-                break;
-            case "Ormoc City":
-                Uri ormoc = Uri.parse("https://plus.codes/7Q362J74+73");
-                Intent goOrmoc = new Intent(Intent.ACTION_VIEW, ormoc);
-                goOrmoc.setPackage("com.google.android.apps.maps");
-                startActivity(goOrmoc);
-                break;
-            case "Manila City":
-                Uri manila = Uri.parse("https://plus.codes/867FVRHM+XH");
-                Intent goManila = new Intent(Intent.ACTION_VIEW, manila);
-                goManila.setPackage("com.google.android.apps.maps");
-                startActivity(goManila);
-                break;
-        }
+
         btnGoogleMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 city = searchCity.getSelectedItem().toString();
+                switch (city){
+                    case "Cagayan de Oro City":
+                        Uri cdo = Uri.parse("https://plus.codes/6QW6FJGR+MG");
+                        Intent goCDO = new Intent(Intent.ACTION_VIEW, cdo);
+                        goCDO.setPackage("com.google.android.apps.maps");
+                        startActivity(goCDO);
+                        break;
+                    case "Davao City":
+                        Uri davao = Uri.parse("https://plus.codes/6QV73J75+R4");
+                        Intent goDavao = new Intent(Intent.ACTION_VIEW, davao);
+                        goDavao.setPackage("com.google.android.apps.maps");
+                        startActivity(goDavao);
+                        break;
+                    case "Ormoc City":
+                        Uri ormoc = Uri.parse("https://plus.codes/7Q362J74+73");
+                        Intent goOrmoc = new Intent(Intent.ACTION_VIEW, ormoc);
+                        goOrmoc.setPackage("com.google.android.apps.maps");
+                        startActivity(goOrmoc);
+                        break;
+                    case "Manila City":
+                        Uri manila = Uri.parse("https://plus.codes/867FVRHM+XH");
+                        Intent goManila = new Intent(Intent.ACTION_VIEW, manila);
+                        goManila.setPackage("com.google.android.apps.maps");
+                        startActivity(goManila);
+                        break;
+                }
 
                 // Create a Uri from an intent string. Use the result to create an Intent.
 

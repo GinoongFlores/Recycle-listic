@@ -32,6 +32,7 @@ public class ScanQRCode extends AppCompatActivity {
     DatabaseReference myRef;
     String getPoints;
     String inputPoints;
+    Button btnBackScanQRCode;
     String uid;
     String qrCity;
     String acquiredPoints;
@@ -40,6 +41,13 @@ public class ScanQRCode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_q_r_code);
         totalPointss = findViewById(R.id.totalPoints);
+        btnBackScanQRCode = findViewById(R.id.btnBackScanQRCode);
+        btnBackScanQRCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(ContextCompat.getColor(ScanQRCode.this,R.color.green));
             getWindow().setNavigationBarColor(ContextCompat.getColor(ScanQRCode.this,R.color.green));

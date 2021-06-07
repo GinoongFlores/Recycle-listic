@@ -8,10 +8,13 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_baseline_home_21"
             android:title="@string/menu_home" />
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
         <item
             android:id="@+id/nav_craft"
             android:icon="@drawable/craft_logoo"
             android:title="@string/menu_craft" />
+
         <item
             android:id="@+id/nav_report"
             android:icon="@drawable/report_logoo"
@@ -24,5 +27,6 @@
             android:id="@+id/nav_garbage"
             android:icon="@drawable/garbage_collector_logo"
             android:title="@string/menu_garbage" />
+    </group>
     </group>
 </menu>

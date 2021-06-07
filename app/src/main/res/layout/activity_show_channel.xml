@@ -16,7 +16,7 @@
         android:background="@color/toolbar">
 
         <Button
-            android:id="@+id/btnBackQRCode"
+            android:id="@+id/btnBackShowChannel"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/backbtn"
@@ -99,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:text="Visit Channel here"
                     android:textSize="15dp"
+                    android:visibility="gone"
                     android:fontFamily="@font/nunito_regular"
                     android:layout_gravity="center"
                     android:textColor="@color/white"/>
