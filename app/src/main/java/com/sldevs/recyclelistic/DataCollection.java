@@ -11,11 +11,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class DataCollection extends AppCompatActivity {
-    Button btnViewRecords,btnAddData;
+    Button btnViewRecords,btnAddData,btnBackDataCollection;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_collection);
+        btnBackDataCollection = findViewById(R.id.btnBackDataCollection);
+        btnBackDataCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(ContextCompat.getColor(DataCollection.this,R.color.green));
             getWindow().setNavigationBarColor(ContextCompat.getColor(DataCollection.this,R.color.green));

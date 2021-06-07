@@ -55,7 +55,7 @@ public class ForgotPassword extends AppCompatActivity {
                                     new AlertDialog.Builder(ForgotPassword.this).setTitle("Check your email.").setMessage("Mail has been sent to change your password.").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
-
+                                            finish();
                                         }
                                     }).show();
                                 }

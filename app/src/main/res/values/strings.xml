@@ -20,7 +20,7 @@
     <string name="craftingguide">Crafting guide helps you to make the unnecessary things to be more useful again. It gives some tutorials that might help you recycle the old things you have right now.</string>
     <string name="reportit">Waste here, waste there! Why not report it through our email? Report It! Is a feature for you to maintain the cleanliness of your surrounding. </string>
     <string name="pointssabasura">Wanna earn some points and convert it to something special? Well Pera sa Basura is the key for it! Just search for the following items shown in convertable materials and look for the nearest junk converters near you. </string>
-    <string name="garbage">Be updated for the Garbage Collector by using this feature. Just search for the specific city and it will tell you what would be the specific time.</string>
+    <string name="garbage">Be updated for the Garbage Truck Collector in your area. Just search for the specific city and barangay,then it would tell you the time to it\'s arrival.</string>
 
 
     <string name="menu_report">Report</string>
@@ -36,10 +36,17 @@
     <string name="edit_number"><u>Edit number</u></string>
     <!-- TODO: Remove or change this placeholder text -->
     <array name="cityLists">
-        <item>Cagayan de Oro City</item>
+        <item>CDO</item>
         <item>Davao City</item>
         <item>Ormoc City</item>
         <item>Manila City</item>
+    </array>
+    <array name="cdobarangay">
+        <item>Nazareth</item>
+        <item>Bugo</item>
+        <item>Iponan</item>
+        <item>Kauswagan</item>
+        <item>Lumbia</item>
     </array>
     <array name="monthLists">
         <item>January</item>
@@ -55,6 +62,41 @@
         <item>November</item>
         <item>December</item>
     </array>
+
+    <array name="dayLists">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+    </array>
+
     <array name="materialList">
         <item>Paper</item>
         <item>Plastic</item>

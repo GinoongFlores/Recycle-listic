@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class ShowPoints extends AppCompatActivity {
     ListView listViewPoints;
     ArrayList<String> arrayList = new ArrayList<>();
     DatabaseReference mRef;
+    Button btnBackShowPoints;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,13 @@ public class ShowPoints extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firstRedeem = findViewById(R.id.firstRedeem);
         tvCurrentPoints = findViewById(R.id.tvCurrentPoints);
+        btnBackShowPoints = findViewById(R.id.btnBackShowPoints);
+        btnBackShowPoints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         loadPoints();
 
             firstRedeem.setOnClickListener(new View.OnClickListener() {

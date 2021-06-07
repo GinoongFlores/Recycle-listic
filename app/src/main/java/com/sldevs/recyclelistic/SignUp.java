@@ -105,17 +105,7 @@ public class SignUp extends AppCompatActivity {
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkTerms.isChecked()){
                     registerUser();
-                }else{
-                    new android.app.AlertDialog.Builder(SignUp.this).setTitle("Terms and Agreements").setMessage("Please check Terms and Agreements").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    }).show();
-                }
-
             }
         });
 //        btnGenerate.setOnClickListener(new View.OnClickListener() {
@@ -171,6 +161,15 @@ public class SignUp extends AppCompatActivity {
         if (number.length() != 11 ) {
             etNumber.setError("Invalid Number");
             etNumber.requestFocus();
+            return;
+        }
+        if(!checkTerms.isChecked()){
+            new android.app.AlertDialog.Builder(SignUp.this).setTitle("Terms and Agreements").setMessage("Please check Terms and Agreements").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                }
+            }).show();
             return;
         }
 //        if(){

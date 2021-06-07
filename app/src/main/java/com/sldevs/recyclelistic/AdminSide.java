@@ -25,7 +25,8 @@ public class AdminSide extends AppCompatActivity {
         btnDataCollection = findViewById(R.id.btnDataCollection);
 
         btnScan = findViewById(R.id.btnScan);
-        String adminCity = getIntent().getExtras().getString("City");
+        String adminCity =getIntent().getExtras().getString("City");
+//        getIntent().getExtras().getString("City")
         TextView tvCity = findViewById(R.id.tvCity);
         tvCity.setText(adminCity.toUpperCase() + " ADMIN SIDE");
 

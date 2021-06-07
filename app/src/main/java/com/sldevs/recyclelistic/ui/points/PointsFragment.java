@@ -54,29 +54,29 @@ public class PointsFragment extends Fragment {
         btnShowJunkLocations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseUser user = mAuth.getCurrentUser();
-
-                if(!user.isEmailVerified()){
-                    new android.app.AlertDialog.Builder(getContext()).setTitle("EMAIL IS NOY YET VERIFIED").setMessage("Check you profile to verify.").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-
-                    }).show();
-                }else{
                     Intent i = new Intent(getContext(), ShowLocations.class);
                     startActivity(i);
-                }
-
             }
         });
         btnShowMaterials = root.findViewById(R.id.btnShowMaterials);
         btnShowMaterials.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getContext(), ShowPoints.class);
-                startActivity(i);
+                FirebaseUser user = mAuth.getCurrentUser();
+//                if (!user.isEmailVerified()){
+//                    new android.app.AlertDialog.Builder(getContext()).setTitle("EMAIL IS NOY YET VERIFIED").setMessage("Check you profile to verify.").setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                        }
+//
+//                    }).show();
+//                }else{
+                    Intent i = new Intent(getContext(), ShowPoints.class);
+                    startActivity(i);
+//                }
+
+
             }
         });
         btnShowQRCode.setOnClickListener(new View.OnClickListener() {

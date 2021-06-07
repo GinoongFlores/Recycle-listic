@@ -15,7 +15,7 @@
         android:background="@color/toolbar">
 
         <Button
-            android:id="@+id/btnBackQRCode"
+            android:id="@+id/btnBackShowPoints"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@drawable/backbtn"
@@ -130,15 +130,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <ImageView
-                    android:id="@+id/thirdChannel"
+                    android:id="@+id/thirdRedeem"
                     android:clickable="true"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/gcash" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="GCash 150 Load = 250 points"
+                    android:text="GCash 100 Load = 200 points"
                     android:layout_gravity="center"/>
             </LinearLayout>
 

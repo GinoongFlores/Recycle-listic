@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ import org.jetbrains.annotations.NotNull;
 public class ShowChannel extends YouTubeBaseActivity {
     private static final int RECOVERY_REQUEST = 1;
     private LifecycleObserver lifecycleOwner;
+    Button btnBackShowChannel;
     ImageView channelLogo;
     TextView channelName,firstIntent,secondIntent;
     com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView firstVideo,secondVideo, thirdVideo;
@@ -32,6 +34,13 @@ public class ShowChannel extends YouTubeBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_channel);
+        btnBackShowChannel = findViewById(R.id.btnBackShowChannel);
+        btnBackShowChannel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(ContextCompat.getColor(ShowChannel.this,R.color.green));
             getWindow().setNavigationBarColor(ContextCompat.getColor(ShowChannel.this,R.color.green));

@@ -15,31 +15,72 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".ChangePassword" android:screenOrientation="portrait" ></activity>
-        <activity android:name=".ForgotPassword" android:screenOrientation="portrait" />
-        <activity android:name=".EditProfile" android:screenOrientation="portrait" />
-        <activity android:name=".ShowPoints" android:screenOrientation="portrait" />
-        <activity android:name=".ScanningPane" android:screenOrientation="portrait" />
-        <activity android:name=".ShowLocations" android:screenOrientation="portrait" />
-        <activity android:name=".ShowChannel" android:screenOrientation="portrait" />
-        <activity android:name=".ShowQRCode" android:screenOrientation="portrait" />
-        <activity android:name=".ReportPane" android:screenOrientation="portrait" />
-        <activity android:name=".AddData" android:screenOrientation="portrait" />
-        <activity android:name=".ViewRecords" android:screenOrientation="portrait" />
-        <activity android:name=".ScanQRCode" android:screenOrientation="portrait" />
-        <activity android:name=".EditPoints" android:screenOrientation="portrait" />
-        <activity android:name=".DataCollection" android:screenOrientation="portrait" />
-        <activity android:name=".EmailVerification" android:screenOrientation="portrait" />
-        <activity android:name=".SignUp" android:screenOrientation="portrait" />
-        <activity android:name=".AfterSplash" android:screenOrientation="portrait" />
-        <activity android:name=".LogIn" android:screenOrientation="portrait" />
-        <activity android:name=".AdminSide" android:screenOrientation="portrait" />
+        <activity android:name=".AddData"></activity>
+        <activity android:name=".TotalMonthDayYear" />
+        <activity android:name=".TotalMonthYear" />
+        <activity android:name=".TotalYear" />
+        <activity
+            android:name=".ChangePassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ForgotPassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowPoints"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ScanningPane"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowLocations"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowChannel"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ShowQRCode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ReportPane"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewRecords"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ScanQRCode"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EditPoints"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DataCollection"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EmailVerification"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SignUp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AfterSplash"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LogIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AdminSide"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UserSide"
             android:label="@string/title_activity_user_side"
-            android:theme="@style/Theme.Recyclelistic.NoActionBar"
-            android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity" android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Recyclelistic.NoActionBar" /> <!-- MainActivity -->
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

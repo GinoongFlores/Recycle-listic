@@ -3,8 +3,11 @@ package com.sldevs.recyclelistic;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,43 +47,72 @@ import java.util.Set;
 public class ViewRecords extends AppCompatActivity {
     Spinner searchMonth;
     EditText searchDay,searchYear;
-    Button btnSearch;
+    Button btnBackViewRecords,btnYY,btnMMDD,btnMMYY,btnMMDDYY;
     private PieChart pieChart;
     FirebaseDatabase database;
     DatabaseReference myRef;
     List<String> materials,values;
 
     ArrayList<PieEntry> entries;
-    Float f,s;
+    int getPaper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_records);
+        String viewRecordsCity = getIntent().getExtras().getString("toViewRecords");
+
 
         materials = new ArrayList<>();
         materials.add("Plastic");
         materials.add("Paper");
         materials.add("Metals");
+        btnBackViewRecords = findViewById(R.id.btnBackViewRecords);
+        btnBackViewRecords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(ViewRecords.this,R.color.green));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(ViewRecords.this,R.color.green));
+        }
 
 
-
-        searchMonth = findViewById(R.id.searchMonth);
-        searchDay = findViewById(R.id.searchDay);
-        searchYear = findViewById(R.id.searchYear);
-        btnSearch = findViewById(R.id.btnSearch);
-        database =FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
         pieChart = findViewById(R.id.activity_main_piechart);
         myRef = database.getReference("DataCollection");
 
         setupPieChart();
         total();
 
-
-        btnSearch.setOnClickListener(new View.OnClickListener() {
+        btnYY = findViewById(R.id.btnYY);
+        btnYY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(ViewRecords.this, TotalYear.class);
+                i.putExtra("toYY",viewRecordsCity);
+                startActivity(i);
+            }
+        });
 
+        btnMMYY = findViewById(R.id.btnMMYY);
+        btnMMYY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewRecords.this, TotalMonthYear.class);
+                i.putExtra("toMMYY",viewRecordsCity);
+                startActivity(i);
+            }
+        });
 
+        btnMMDDYY = findViewById(R.id.btnMMDDYY);
+        btnMMDDYY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewRecords.this, TotalMonthDayYear.class);
+                i.putExtra("toMMDDYY",viewRecordsCity);
+                startActivity(i);
             }
         });
     }
@@ -104,71 +136,6 @@ public class ViewRecords extends AppCompatActivity {
     }
 
     private void loadPieChartData() {
-
-    }
-
-//    }
-
-    public void total(){
-
-        entries = new ArrayList<>();
-//        values = new ArrayList<>();
-//        Query paperQuery = myRef.child("cdo").orderByChild("item").equalTo("Paper");
-//        paperQuery.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                int totalPaper = 0;
-//                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                    String valuePaper = dataSnapshot.child("value").getValue().toString();
-//                    totalPaper += Integer.parseInt(valuePaper);
-//                    values.add(String.valueOf(totalPaper));
-////                    Log.d("Value: ", String.valueOf(totalPaper));
-//                }
-//                String paper = String.valueOf(totalPaper);
-//                entries.add(new PieEntry(Float.parseFloat(paper), "Paper"));
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        Query plasticQuery = myRef.child("cdo").orderByChild("item").equalTo("Plastic");
-//        plasticQuery.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                int totalPlastic = 0;
-//                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                    String valuePlastic = dataSnapshot.child("value").getValue().toString();
-//                    totalPlastic += Integer.parseInt(valuePlastic);
-//                    plasticValue.setText(totalPlastic);
-//                    values.add(plasticValue.getText().toString());
-////                    Log.d("Value: ", String.valueOf(totalPlastic));
-//                }
-//                String plastic = String.valueOf(totalPlastic);
-//                entries.add(new PieEntry(Float.parseFloat(plastic), "Plastic"));
-//
-//                Log.d("Final Paper Value: ", values.get(0));
-//                Log.d("Final Plastic Value: ", values.get(1));
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
-//        Float first = Float.parseFloat(values.get(0));
-//        Float second = Float.parseFloat(values.get(1));
-//        entries.add(new PieEntry(, materials.get(0)));
-//        entries.add(new PieEntry(s, materials.get(1)));
-        entries.add(new PieEntry(13f, "Plastic"));
-        entries.add(new PieEntry(10f, "Metal"));
-        entries.add(new PieEntry(9f, "Paper"));
-        entries.add(new PieEntry(4f, "Gas"));
-
-
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: ColorTemplate.MATERIAL_COLORS) {
             colors.add(color);
@@ -191,12 +158,75 @@ public class ViewRecords extends AppCompatActivity {
         pieChart.invalidate();
 
         pieChart.animateY(1400, Easing.EaseInOutQuad);
-//                for(int i = 0; i < materials.size();i++){
-//                    Log.d("Valuess: ", values.get(i));
-//                    Log.d("Materialss: ", materials.get(i));
-//                    entries.add(new PieEntry(Float.parseFloat(values.get(i)), materials.get(i)));
-//                }
+    }
 
+//    }
+
+    public void total(){
+        String viewRecordsCity = getIntent().getExtras().getString("toViewRecords");
+        entries = new ArrayList<>();
+        values = new ArrayList<>();
+
+        Query paperQuery = myRef.child(viewRecordsCity).orderByChild("city").equalTo(viewRecordsCity);
+        paperQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int totalPaper = 0;
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String valuePaper = dataSnapshot.child("paper").getValue().toString();
+                    totalPaper += Integer.parseInt(valuePaper);
+                    Log.d("Value: ", String.valueOf(totalPaper));
+                }
+                Float paper = (float) totalPaper;
+                entries.add(new PieEntry(paper, "Paper: " + paper));
+                loadPieChartData();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+        Query plasticQuery = myRef.child(viewRecordsCity).orderByChild("city").equalTo(viewRecordsCity);
+        plasticQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int totalPlastic = 0;
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String valuePlastic = dataSnapshot.child("plastic").getValue().toString();
+                    totalPlastic += Integer.parseInt(valuePlastic);
+                    Log.d("Value: ", String.valueOf(totalPlastic));
+                }
+                Float plastic = (float) totalPlastic;
+                entries.add(new PieEntry(plastic, "Plastic: " + plastic));
+                loadPieChartData();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        Query metalQuery = myRef.child(viewRecordsCity).orderByChild("city").equalTo(viewRecordsCity);
+        metalQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int totalMetal = 0;
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String valueMetal = dataSnapshot.child("metal").getValue().toString();
+                    totalMetal += Integer.parseInt(valueMetal);
+                    Log.d("Value: ", String.valueOf(totalMetal));
+                }
+                Float metal = (float) totalMetal;
+                entries.add(new PieEntry(metal, "Metal: " + metal));
+                loadPieChartData();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
 

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class ReportPane extends AppCompatActivity {
     EditText etLocation,etDescription;
     TextView btnGoReport;
+    Button btnBackReportPane;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,13 @@ public class ReportPane extends AppCompatActivity {
         etLocation = findViewById(R.id.etLocation);
         etDescription = findViewById(R.id.etDescription);
         btnGoReport = findViewById(R.id.btnGoReport);
-
+        btnBackReportPane = findViewById(R.id.btnBackReportPane);
+        btnBackReportPane.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         btnGoReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,15 +55,15 @@ public class ReportPane extends AppCompatActivity {
                     final String appPackageName = "com.google.android.gm"; // getPackageName() from Context or Activity object
                     if (isAppInstalled("com.google.android.gm") == true) {
 
-                        etDescription.setText("");
-                        etLocation.setText("");
+
                         Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 
                         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"recycelistic@gmail.com"});
                         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Solid Waste Materials");
                         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "Location: " + etLocation.getText() + "\n" + "Description: " + etDescription.getText() + "\n\n" + "(DON'T FORGET TO ATTACH IMAGE)");
                         emailIntent.setType("image/png");
-
+                        etDescription.setText("");
+                        etLocation.setText("");
                         ArrayList<Uri> uris = new ArrayList<Uri>();
 
 //                uris.add(Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.ic_menu_gallery));
